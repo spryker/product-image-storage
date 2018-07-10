@@ -19,7 +19,7 @@ use Spryker\Zed\ProductImage\Dependency\ProductImageEvents;
  * @method \Spryker\Zed\ProductImageStorage\Business\ProductImageStorageFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductImageStorage\Communication\ProductImageStorageCommunicationFactory getFactory()
  */
-class ProductConcreteImageEventResourcePlugin extends AbstractPlugin implements EventResourceQueryContainerPluginInterface
+class ProductAbstractImageEventResourceQueryContainerPlugin extends AbstractPlugin implements EventResourceQueryContainerPluginInterface
 {
     /**
      * Specification:
@@ -31,7 +31,7 @@ class ProductConcreteImageEventResourcePlugin extends AbstractPlugin implements 
      */
     public function getResourceName(): string
     {
-        return ProductImageStorageConfig::PRODUCT_CONCRETE_IMAGE_RESOURCE_NAME;
+        return ProductImageStorageConfig::PRODUCT_ABSTRACT_IMAGE_RESOURCE_NAME;
     }
 
     /**
@@ -66,7 +66,7 @@ class ProductConcreteImageEventResourcePlugin extends AbstractPlugin implements 
      */
     public function getEventName(): string
     {
-        return ProductImageEvents::PRODUCT_IMAGE_PRODUCT_CONCRETE_PUBLISH;
+        return ProductImageEvents::PRODUCT_IMAGE_PRODUCT_ABSTRACT_PUBLISH;
     }
 
     /**
