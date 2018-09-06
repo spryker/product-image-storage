@@ -7,6 +7,34 @@
 
 namespace Spryker\Client\ProductImageStorage;
 
+use Generated\Shared\Transfer\ProductAbstractImageStorageTransfer;
+use Generated\Shared\Transfer\ProductConcreteImageStorageTransfer;
+
 interface ProductImageStorageClientInterface
 {
+    /**
+     * Specification:
+     *  - Retrieves abstract product main data from storage.
+     *
+     * @api
+     *
+     * @param int $idProductAbstract
+     * @param string $locale
+     *
+     * @return \Generated\Shared\Transfer\ProductAbstractImageStorageTransfer|null
+     */
+    public function findProductImageAbstractStorageTransfer($idProductAbstract, $locale): ?ProductAbstractImageStorageTransfer;
+
+    /**
+     * Specification:
+     *  - Retrieves concrete product main data from storage.
+     *
+     * @api
+     *
+     * @param int $idProductConcrete
+     * @param string $locale
+     *
+     * @return \Generated\Shared\Transfer\ProductConcreteImageStorageTransfer|null
+     */
+    public function findProductImageConcreteStorageTransfer($idProductConcrete, $locale): ?ProductConcreteImageStorageTransfer;
 }
