@@ -9,27 +9,21 @@ namespace Spryker\Zed\ProductImageStorage\Communication\Plugin\Event\Listener;
 
 use Spryker\Zed\Event\Dependency\Plugin\EventBulkHandlerInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\ProductImage\Dependency\ProductImageEvents;
 use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 
 /**
- * @deprecated Use `\Spryker\Zed\ProductImageStorage\Communication\Plugin\Event\Listener\ProductAbstractImageStoragePublishListener` and `\Spryker\Zed\ProductImageStorage\Communication\Plugin\Event\Listener\ProductAbstractImageStorageUnpublishListener` instead.
- *
  * @method \Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageQueryContainerInterface getQueryContainer()
  * @method \Spryker\Zed\ProductImageStorage\Communication\ProductImageStorageCommunicationFactory getFactory()
  * @method \Spryker\Zed\ProductImageStorage\Business\ProductImageStorageFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductImageStorage\ProductImageStorageConfig getConfig()
  */
-class ProductAbstractImageStorageListener extends AbstractPlugin implements EventBulkHandlerInterface
+class ProductConcreteImageSetProductImageStorageUnpublishListener extends AbstractPlugin implements EventBulkHandlerInterface
 {
     use DatabaseTransactionHandlerTrait;
 
-    protected const PUBLISH_EVENTS = [
-        ProductImageEvents::ENTITY_SPY_PRODUCT_IMAGE_UPDATE,
-        ProductImageEvents::ENTITY_SPY_PRODUCT_IMAGE_CREATE,
-    ];
-
     /**
+     * {@inheritdoc}
+     *
      * @api
      *
      * @param \Generated\Shared\Transfer\EventEntityTransfer[] $eventTransfers
@@ -40,15 +34,9 @@ class ProductAbstractImageStorageListener extends AbstractPlugin implements Even
     public function handleBulk(array $eventTransfers, $eventName)
     {
         $this->preventTransaction();
-        $productImageIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
-        $productAbstractIds = $this->getQueryContainer()->queryProductAbstractIdsByProductImageIds($productImageIds)->find()->getData();
+        $productImageSetToProductImageIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferIds($eventTransfers);
+        $productIds = $this->getQueryContainer()->queryProductIdsByProductImageSetToProductImageIds($productImageSetToProductImageIds)->find()->getData();
 
-        if ($eventName === ProductImageEvents::ENTITY_SPY_PRODUCT_IMAGE_DELETE) {
-            $this->getFacade()->unpublishProductAbstractImages($productAbstractIds);
-        }
-
-        if (in_array($eventName, static::PUBLISH_EVENTS)) {
-            $this->getFacade()->publishProductAbstractImages($productAbstractIds);
-        }
+        $this->getFacade()->unpublishProductConcreteImages($productIds);
     }
 }
