@@ -5,7 +5,8 @@
         <property name="idProductImage" type="int"/>
         <property name="externalUrlLarge" type="string"/>
         <property name="externalUrlSmall" type="string"/>
-        <property name="altText" type="string"/>
+        <property name="altTextSmall" type="string"/>
+        <property name="altTextLarge" type="string"/>
     </transfer>
 
     <transfer name="ProductImageSetStorage">
