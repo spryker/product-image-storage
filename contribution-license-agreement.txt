@@ -1,0 +1,1 @@
+I hereby agree to Spryker's Contribution License Agreement in https://github.com/spryker/product-image-storage/blob/e15b8902b5adcb49d04c001cb372044e5f87db80/CONTRIBUTING.md
