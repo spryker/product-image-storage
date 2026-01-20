@@ -45,9 +45,6 @@ class ProductAbstractImageSetProductImageStorageUnpublishListenerTest extends Un
      */
     protected ProductImageStorageCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -55,6 +52,7 @@ class ProductAbstractImageSetProductImageStorageUnpublishListenerTest extends Un
         $this->tester->setDependency(QueueDependencyProvider::QUEUE_ADAPTERS, function (Container $container) {
             return [
                 $container->getLocator()->rabbitMq()->client()->createQueueAdapter(),
+                $container->getLocator()->symfonyMessenger()->client()->createQueueAdapter(),
             ];
         });
     }
