@@ -15,7 +15,7 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 class ProductImageStorageEntityManager extends AbstractEntityManager implements ProductImageStorageEntityManagerInterface
 {
     /**
-     * @param list<int> $productAbstractIds
+     * @param array<int> $productAbstractIds
      *
      * @return void
      */

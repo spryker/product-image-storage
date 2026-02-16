@@ -10,7 +10,7 @@ namespace Spryker\Zed\ProductImageStorage\Persistence;
 interface ProductImageStorageEntityManagerInterface
 {
     /**
-     * @param list<int> $productAbstractIds
+     * @param array<int> $productAbstractIds
      *
      * @return void
      */

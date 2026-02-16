@@ -45,9 +45,9 @@ interface ProductImageStorageRepositoryInterface
     public function getDefaultAbstractProductImageSetsByIdAbstractProductIn(array $productAbstractIds): array;
 
     /**
-     * @param list<int> $productImageSetIds
+     * @param array<int> $productImageSetIds
      *
-     * @return list<int>
+     * @return array<int>
      */
     public function getProductAbstractIdsByProductImageSetIds(array $productImageSetIds): array;
 }

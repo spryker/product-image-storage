@@ -129,9 +129,9 @@ class ProductImageStorageRepository extends AbstractRepository implements Produc
     /**
      * @module ProductImage
      *
-     * @param list<int> $productImageSetIds
+     * @param array<int> $productImageSetIds
      *
-     * @return list<int>
+     * @return array<int>
      */
     public function getProductAbstractIdsByProductImageSetIds(array $productImageSetIds): array
     {

@@ -186,7 +186,7 @@ class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWr
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\EventEntityTransfer> $eventEntityTransfers
+     * @param array<\Generated\Shared\Transfer\EventEntityTransfer> $eventEntityTransfers
      *
      * @return void
      */
@@ -351,8 +351,8 @@ class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWr
     }
 
     /**
-     * @param list<\Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributes> $productAbstractLocalizedEntities
-     * @param list<int> $productAbstractIds
+     * @param array<\Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributes> $productAbstractLocalizedEntities
+     * @param array<int> $productAbstractIds
      *
      * @return void
      */
@@ -372,10 +372,10 @@ class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWr
     }
 
     /**
-     * @param list<\Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributes> $productAbstractLocalizedEntities
-     * @param list<int> $productAbstractIds
+     * @param array<\Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributes> $productAbstractLocalizedEntities
+     * @param array<int> $productAbstractIds
      *
-     * @return list<int>
+     * @return array<int>
      */
     protected function getProductAbstractIdsWithoutLocalizedAttributes(
         array $productAbstractLocalizedEntities,
@@ -388,9 +388,9 @@ class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWr
     }
 
     /**
-     * @param list<\Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributes> $productAbstractLocalizedEntities
+     * @param array<\Orm\Zed\Product\Persistence\SpyProductAbstractLocalizedAttributes> $productAbstractLocalizedEntities
      *
-     * @return list<int>
+     * @return array<int>
      */
     protected function extractProductAbstractIdsFromProductAbstractLocalizedEntities(array $productAbstractLocalizedEntities): array
     {

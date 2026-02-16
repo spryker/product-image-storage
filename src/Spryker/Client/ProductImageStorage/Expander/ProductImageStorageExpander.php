@@ -87,7 +87,7 @@ class ProductImageStorageExpander implements ProductImageStorageExpanderInterfac
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\ProductImageSetStorageTransfer> $productImageSetStorageTransfers
      *
-     * @return list<string>
+     * @return array<string>
      */
     protected function getGlossaryStorageKeys(ArrayObject $productImageSetStorageTransfers): array
     {
@@ -105,7 +105,7 @@ class ProductImageStorageExpander implements ProductImageStorageExpanderInterfac
 
     /**
      * @param \Generated\Shared\Transfer\ProductImageStorageTransfer $productImageStorageTransfer
-     * @param list<string> $translations
+     * @param array<string, string> $translations
      *
      * @return void
      */
@@ -127,7 +127,7 @@ class ProductImageStorageExpander implements ProductImageStorageExpanderInterfac
 
     /**
      * @param \Generated\Shared\Transfer\ProductImageStorageTransfer $productImageStorageTransfer
-     * @param list<string> $translations
+     * @param array<string, string> $translations
      *
      * @return void
      */
