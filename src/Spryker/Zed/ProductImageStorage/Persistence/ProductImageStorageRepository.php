@@ -19,11 +19,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class ProductImageStorageRepository extends AbstractRepository implements ProductImageStorageRepositoryInterface
 {
-    /**
-     * @param array $productIds
-     *
-     * @return array
-     */
     public function getProductLocalizedAttributesWithProductByIdProductIn(array $productIds): array
     {
         /** @var \Propel\Runtime\Collection\ArrayCollection $productLocalizedAttributes */
@@ -145,11 +140,6 @@ class ProductImageStorageRepository extends AbstractRepository implements Produc
         return $productAbstractIds->toArray();
     }
 
-    /**
-     * @param \Orm\Zed\ProductImage\Persistence\SpyProductImageSetQuery $productImageSetToProductImageQuery
-     *
-     * @return \Orm\Zed\ProductImage\Persistence\SpyProductImageSetQuery
-     */
     protected function sortProductImageSetToProductImageQuery(
         SpyProductImageSetQuery $productImageSetToProductImageQuery
     ): SpyProductImageSetQuery {

@@ -11,9 +11,6 @@ use Spryker\Zed\ProductImageStorage\ProductImageStorageConfig;
 
 class ProductImageStorageConfigMock extends ProductImageStorageConfig
 {
-    /**
-     * @return bool
-     */
     public function isSendingToQueue(): bool
     {
         return false;

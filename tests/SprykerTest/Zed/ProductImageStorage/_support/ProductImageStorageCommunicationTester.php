@@ -45,9 +45,6 @@ class ProductImageStorageCommunicationTester extends Actor
      */
     public const PROJECT_SUITE = 'suite';
 
-    /**
-     * @return bool
-     */
     public function isSuiteProject(): bool
     {
         if (getenv(static::PARAM_PROJECT) === static::PROJECT_SUITE) {
@@ -57,11 +54,6 @@ class ProductImageStorageCommunicationTester extends Actor
         return false;
     }
 
-    /**
-     * @param int $sortOrder
-     *
-     * @return \Generated\Shared\Transfer\ProductImageTransfer
-     */
     public function createProductImageTransferWithSortOrder(int $sortOrder): ProductImageTransfer
     {
         /** @var \Generated\Shared\Transfer\ProductImageTransfer $productImageTransfer */
@@ -72,22 +64,12 @@ class ProductImageStorageCommunicationTester extends Actor
         return $productImageTransfer;
     }
 
-    /**
-     * @param int $idProductImageSet
-     *
-     * @return \Orm\Zed\ProductImage\Persistence\SpyProductImageSetToProductImage|null
-     */
     public function findProductImageSetToProductImage(int $idProductImageSet): ?SpyProductImageSetToProductImage
     {
         return SpyProductImageSetToProductImageQuery::create()
             ->findOneByFkProductImageSet($idProductImageSet);
     }
 
-    /**
-     * @param int $idProductImageSet
-     *
-     * @return void
-     */
     public function deleteProductImageSetToProductImage(int $idProductImageSet): void
     {
         $productImageSetToProductImageEntity = $this->findProductImageSetToProductImage($idProductImageSet);
@@ -98,12 +80,6 @@ class ProductImageStorageCommunicationTester extends Actor
         $productImageSetToProductImageEntity->delete();
     }
 
-    /**
-     * @param int $idProductConcrete
-     * @param string $locale
-     *
-     * @return \Orm\Zed\ProductImageStorage\Persistence\SpyProductConcreteImageStorage
-     */
     public function createProductConcreteImageStorage(int $idProductConcrete, string $locale): SpyProductConcreteImageStorage
     {
         $productConcreteImageStorageEntity = (new SpyProductConcreteImageStorage())
@@ -117,11 +93,6 @@ class ProductImageStorageCommunicationTester extends Actor
         return $productConcreteImageStorageEntity;
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractImageStorageTransfer|null
-     */
     public function findProductAbstractImageStorageTransfer(int $idProductAbstract): ?ProductAbstractImageStorageTransfer
     {
         $productAbstractImageStorageEntity = $this->findProductAbstractImageStorage($idProductAbstract);
@@ -133,20 +104,12 @@ class ProductImageStorageCommunicationTester extends Actor
         return (new ProductAbstractImageStorageTransfer())->fromArray($productAbstractImageStorageEntity->getData());
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Orm\Zed\ProductImageStorage\Persistence\Base\SpyProductAbstractImageStorage|null
-     */
     protected function findProductAbstractImageStorage(int $idProductAbstract): ?SpyProductAbstractImageStorage
     {
         return $this->getProductAbstractImageStorageQuery()
             ->findOneByFkProductAbstract($idProductAbstract);
     }
 
-    /**
-     * @return \Orm\Zed\ProductImageStorage\Persistence\SpyProductAbstractImageStorageQuery
-     */
     protected function getProductAbstractImageStorageQuery(): SpyProductAbstractImageStorageQuery
     {
         return SpyProductAbstractImageStorageQuery::create();

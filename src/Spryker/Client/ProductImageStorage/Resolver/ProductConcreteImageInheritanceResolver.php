@@ -22,10 +22,6 @@ class ProductConcreteImageInheritanceResolver implements ProductConcreteImageInh
      */
     protected $productAbstractImageStorageReader;
 
-    /**
-     * @param \Spryker\Client\ProductImageStorage\Storage\ProductConcreteImageStorageReaderInterface $productConcreteImageStorageReader
-     * @param \Spryker\Client\ProductImageStorage\Storage\ProductAbstractImageStorageReaderInterface $productAbstractImageStorageReader
-     */
     public function __construct(
         ProductConcreteImageStorageReaderInterface $productConcreteImageStorageReader,
         ProductAbstractImageStorageReaderInterface $productAbstractImageStorageReader

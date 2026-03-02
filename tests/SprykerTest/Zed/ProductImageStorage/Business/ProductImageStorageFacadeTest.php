@@ -51,9 +51,6 @@ class ProductImageStorageFacadeTest extends Unit
      */
     protected ProductImageStorageBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -66,9 +63,6 @@ class ProductImageStorageFacadeTest extends Unit
         });
     }
 
-    /**
-     * @return void
-     */
     public function testUnpublishRemovesProductImageAbstractStoragesWhenProductAbstractDoesNotHaveLocalizedAttributes(): void
     {
         // Arrange
@@ -89,9 +83,6 @@ class ProductImageStorageFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testUnpublishRemovesCorrectProductImageAbstractStoragesWhenProductAbstractHaveLocalizedAttributeRemovedForLocale(): void
     {
         // Arrange

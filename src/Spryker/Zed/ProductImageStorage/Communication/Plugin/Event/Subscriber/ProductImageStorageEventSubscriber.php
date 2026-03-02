@@ -109,11 +109,6 @@ class ProductImageStorageEventSubscriber extends AbstractPlugin implements Event
         $eventCollection->addListenerQueued(ProductImageEvents::PRODUCT_IMAGE_PRODUCT_CONCRETE_UNPUBLISH, new ProductImageConcreteStorageUnpublishListener(), 0, null, $this->getConfig()->getProductImageConcreteEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductAbstractImageCreateStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductImageEvents::ENTITY_SPY_PRODUCT_IMAGE_CREATE, new ProductAbstractImageStoragePublishListener(), 0, null, $this->getConfig()->getProductImageAbstractEventQueueName());
@@ -139,11 +134,6 @@ class ProductImageStorageEventSubscriber extends AbstractPlugin implements Event
         $eventCollection->addListenerQueued(ProductImageEvents::ENTITY_SPY_PRODUCT_IMAGE_DELETE, new ProductAbstractImageStorageUnpublishListener(), 0, null, $this->getConfig()->getProductImageAbstractEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductConcreteImageCreateStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductImageEvents::ENTITY_SPY_PRODUCT_IMAGE_CREATE, new ProductConcreteImageStoragePublishListener(), 0, null, $this->getConfig()->getProductImageConcreteEventQueueName());

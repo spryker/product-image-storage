@@ -15,19 +15,10 @@ use Spryker\Client\ProductImageStorage\Dependency\Client\ProductImageStorageToGl
 
 class ProductImageStorageExpander implements ProductImageStorageExpanderInterface
 {
-    /**
-     * @param \Spryker\Client\ProductImageStorage\Dependency\Client\ProductImageStorageToGlossaryStorageClientInterface $glossaryStorageClient
-     */
     public function __construct(protected ProductImageStorageToGlossaryStorageClientInterface $glossaryStorageClient)
     {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractImageStorageTransfer $productAbstractImageStorageTransfer
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractImageStorageTransfer
-     */
     public function expandProductAbstractImageStorageTransferWithProductImageAlternativeTexts(
         ProductAbstractImageStorageTransfer $productAbstractImageStorageTransfer,
         string $localeName
@@ -40,12 +31,6 @@ class ProductImageStorageExpander implements ProductImageStorageExpanderInterfac
         return $productAbstractImageStorageTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteImageStorageTransfer $productConcreteImageStorageTransfer
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteImageStorageTransfer
-     */
     public function expandProductConcreteImageStorageTransferWithProductImageAlternativeTexts(
         ProductConcreteImageStorageTransfer $productConcreteImageStorageTransfer,
         string $localeName

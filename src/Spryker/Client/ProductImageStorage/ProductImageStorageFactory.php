@@ -68,9 +68,6 @@ class ProductImageStorageFactory extends AbstractFactory
         return new ProductImageStorageKeyGenerator($this->getSynchronizationService());
     }
 
-    /**
-     * @return \Spryker\Client\ProductImageStorage\Resolver\ProductConcreteImageInheritanceResolverInterface
-     */
     public function createProductConcreteImageInheritanceResolver(): ProductConcreteImageInheritanceResolverInterface
     {
         return new ProductConcreteImageInheritanceResolver(
@@ -79,9 +76,6 @@ class ProductImageStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductImageStorage\Expander\ProductImageStorageExpanderInterface|null
-     */
     public function createProductImageStorageExpander(): ?ProductImageStorageExpanderInterface
     {
         if (!$this->getProductImageClient()->isProductImageAlternativeTextEnabled()) {
@@ -109,9 +103,6 @@ class ProductImageStorageFactory extends AbstractFactory
         return $this->getProvidedDependency(ProductImageStorageDependencyProvider::SERVICE_SYNCHRONIZATION);
     }
 
-    /**
-     * @return \Spryker\Client\ProductImageStorage\Dependency\Client\ProductImageStorageToGlossaryStorageClientInterface
-     */
     public function getGlossaryStorageClient(): ProductImageStorageToGlossaryStorageClientInterface
     {
         $this->assertProductImageAlternativeTextEnabled();
@@ -119,9 +110,6 @@ class ProductImageStorageFactory extends AbstractFactory
         return $this->getProvidedDependency(ProductImageStorageDependencyProvider::CLIENT_GLOSSARY_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductImageStorage\Dependency\Client\ProductImageStorageToProductImageClientInterface
-     */
     public function getProductImageClient(): ProductImageStorageToProductImageClientInterface
     {
         return $this->getProvidedDependency(ProductImageStorageDependencyProvider::CLIENT_PRODUCT_IMAGE);

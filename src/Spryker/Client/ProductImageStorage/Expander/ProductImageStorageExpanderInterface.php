@@ -12,23 +12,11 @@ use Generated\Shared\Transfer\ProductConcreteImageStorageTransfer;
 
 interface ProductImageStorageExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractImageStorageTransfer $productAbstractImageStorageTransfer
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractImageStorageTransfer
-     */
     public function expandProductAbstractImageStorageTransferWithProductImageAlternativeTexts(
         ProductAbstractImageStorageTransfer $productAbstractImageStorageTransfer,
         string $localeName
     ): ProductAbstractImageStorageTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteImageStorageTransfer $productConcreteImageStorageTransfer
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteImageStorageTransfer
-     */
     public function expandProductConcreteImageStorageTransferWithProductImageAlternativeTexts(
         ProductConcreteImageStorageTransfer $productConcreteImageStorageTransfer,
         string $localeName

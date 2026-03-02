@@ -67,9 +67,6 @@ class ProductImageStorageBusinessTester extends Actor
             ->getData();
     }
 
-    /**
-     * @return \Orm\Zed\ProductImageStorage\Persistence\SpyProductAbstractImageStorageQuery
-     */
     protected function getProductAbstractImageStorageQuery(): SpyProductAbstractImageStorageQuery
     {
         return SpyProductAbstractImageStorageQuery::create();

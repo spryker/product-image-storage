@@ -57,9 +57,6 @@ class ProductAbstractImageSetProductImageStorageUnpublishListenerTest extends Un
         });
     }
 
-    /**
-     * @return void
-     */
     public function testPublishesData(): void
     {
         // Arrange
@@ -91,9 +88,6 @@ class ProductAbstractImageSetProductImageStorageUnpublishListenerTest extends Un
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductImageStorage\Business\ProductImageStorageFacade
-     */
     protected function getProductImageStorageFacade(): ProductImageStorageFacade
     {
         $factory = new ProductImageStorageBusinessFactory();

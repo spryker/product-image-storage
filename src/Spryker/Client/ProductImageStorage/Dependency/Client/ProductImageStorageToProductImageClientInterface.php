@@ -9,8 +9,5 @@ namespace Spryker\Client\ProductImageStorage\Dependency\Client;
 
 interface ProductImageStorageToProductImageClientInterface
 {
-    /**
-     * @return bool
-     */
     public function isProductImageAlternativeTextEnabled(): bool;
 }

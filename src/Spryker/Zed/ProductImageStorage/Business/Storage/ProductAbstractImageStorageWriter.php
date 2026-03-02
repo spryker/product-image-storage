@@ -60,14 +60,6 @@ class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWr
      */
     protected bool $isSendingToQueue = true;
 
-    /**
-     * @param \Spryker\Zed\ProductImageStorage\Dependency\Facade\ProductImageStorageToProductImageInterface $productImageFacade
-     * @param \Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageQueryContainerInterface $queryContainer
-     * @param \Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageRepositoryInterface $repository
-     * @param \Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageEntityManagerInterface $productImageStorageEntityManager
-     * @param \Spryker\Zed\ProductImageStorage\Dependency\Facade\ProductImageStorageToEventBehaviorFacadeInterface $eventBehaviorFacade
-     * @param bool $isSendingToQueue
-     */
     public function __construct(
         ProductImageStorageToProductImageInterface $productImageFacade,
         ProductImageStorageQueryContainerInterface $queryContainer,

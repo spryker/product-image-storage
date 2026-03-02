@@ -17,11 +17,6 @@ use Spryker\Shared\ProductImageStorage\ProductImageStorageConfig as ProductImage
 
 class ProductConcreteImageStorageReader implements ProductConcreteImageStorageReaderInterface
 {
-    /**
-     * @param \Spryker\Client\ProductImageStorage\Dependency\Client\ProductImageStorageToStorageInterface $storageClient
-     * @param \Spryker\Client\ProductImageStorage\Storage\ProductImageStorageKeyGeneratorInterface $productImageStorageKeyGenerator
-     * @param \Spryker\Client\ProductImageStorage\Expander\ProductImageStorageExpanderInterface|null $productImageStorageExpander
-     */
     public function __construct(
         protected ProductImageStorageToStorageInterface $storageClient,
         protected ProductImageStorageKeyGeneratorInterface $productImageStorageKeyGenerator,

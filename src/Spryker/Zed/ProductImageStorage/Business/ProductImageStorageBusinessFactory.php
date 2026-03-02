@@ -49,9 +49,6 @@ class ProductImageStorageBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductImageStorage\Dependency\Facade\ProductImageStorageToEventBehaviorFacadeInterface
-     */
     public function getEventBehaviorFacade(): ProductImageStorageToEventBehaviorFacadeInterface
     {
         return $this->getProvidedDependency(ProductImageStorageDependencyProvider::FACADE_EVENT_BEHAVIOR);

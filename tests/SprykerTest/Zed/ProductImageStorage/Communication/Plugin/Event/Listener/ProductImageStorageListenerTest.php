@@ -87,9 +87,6 @@ class ProductImageStorageListenerTest extends Unit
      */
     protected $productConcreteTransfer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -113,9 +110,6 @@ class ProductImageStorageListenerTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     protected function createProducts(): void
     {
         $this->productAbstractTransfer = $this->tester->haveProductAbstract();
@@ -127,9 +121,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->tester->addLocalizedAttributesToProductConcrete($this->productConcreteTransfer, $localizedAttributes);
     }
 
-    /**
-     * @return void
-     */
     public function testProductImageAbstractPublishStorageListenerStoreData(): void
     {
         // Prepare
@@ -150,9 +141,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductAbstractImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductImageAbstractStoragePublishListenerStoreData(): void
     {
         // Prepare
@@ -173,9 +161,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductAbstractImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductImageAbstractStorageUnpublishListenerStoreData(): void
     {
         // Prepare
@@ -195,9 +180,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(0, SpyProductAbstractImageStorageQuery::create()->filterByFkProductAbstract($this->productAbstractTransfer->getIdProductAbstract())->count());
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageStorageListenerStoreData(): void
     {
         // Prepare
@@ -220,9 +202,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductAbstractImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageEntityStoragePublishListener(): void
     {
         // Prepare
@@ -245,9 +224,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductAbstractImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageEntityStorageUnpublishListener(): void
     {
         // Prepare
@@ -269,9 +245,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(0, SpyProductAbstractImageStorageQuery::create()->filterByFkProductAbstract($this->productAbstractTransfer->getIdProductAbstract())->count());
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageSetStorageListenerStoreData(): void
     {
         // Prepare
@@ -294,9 +267,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductAbstractImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageSetStoragePublishListener(): void
     {
         // Prepare
@@ -319,9 +289,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductAbstractImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageSetStorageUnpublishListener(): void
     {
         // Prepare
@@ -343,9 +310,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(0, SpyProductAbstractImageStorageQuery::create()->filterByFkProductAbstract($this->productAbstractTransfer->getIdProductAbstract())->count());
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageSetProductImageStorageListenerStoreData(): void
     {
         // Prepare
@@ -372,9 +336,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductAbstractImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageSetProductImageStoragePublishListener(): void
     {
         // Prepare
@@ -401,9 +362,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductAbstractImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageSetProductImageStorageUnpublishListener(): void
     {
         // Prepare
@@ -429,9 +387,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(0, SpyProductAbstractImageStorageQuery::create()->filterByFkProductAbstract($this->productAbstractTransfer->getIdProductAbstract())->count());
     }
 
-    /**
-     * @return void
-     */
     public function testProductImageConcretePublishStorageListenerStoreData(): void
     {
         // Prepare
@@ -452,9 +407,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductConcreteImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductImageConcreteStoragePublishListenerStoreData(): void
     {
         // Prepare
@@ -475,9 +427,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductConcreteImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductImageConcreteStorageUnpublishListenerStoreData(): void
     {
         // Prepare
@@ -499,9 +448,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(0, SpyProductConcreteImageStorageQuery::create()->filterByFkProduct($this->productConcreteTransfer->getIdProductConcrete())->count());
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageStorageListenerStoreData(): void
     {
         SpyProductConcreteImageStorageQuery::create()->filterByFkProduct($this->productConcreteTransfer->getIdProductConcrete())->delete();
@@ -522,9 +468,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductConcreteImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageStoragePublishListener(): void
     {
         // Prepare
@@ -547,9 +490,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductConcreteImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageStorageUnpublishListener(): void
     {
         // Prepare
@@ -571,9 +511,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(0, SpyProductConcreteImageStorageQuery::create()->filterByFkProduct($this->productConcreteTransfer->getIdProductConcrete())->count());
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageSetStorageListenerStoreData(): void
     {
         SpyProductConcreteImageStorageQuery::create()->filterByFkProduct($this->productConcreteTransfer->getIdProductConcrete())->delete();
@@ -593,9 +530,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductConcreteImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageSetStoragePublishListener(): void
     {
         // Prepare
@@ -618,9 +552,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductConcreteImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageSetStorageUnpublishListener(): void
     {
         // Prepare
@@ -644,9 +575,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(0, SpyProductConcreteImageStorageQuery::create()->filterByFkProduct($this->productConcreteTransfer->getIdProductConcrete())->count());
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageSetProductImageStorageListenerStoreData(): void
     {
         // Prepare
@@ -673,9 +601,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductConcreteImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageSetProductImageStoragePublishListener(): void
     {
         // Prepare
@@ -702,9 +627,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertProductConcreteImageStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageSetProductImageStorageUnpublishListener(): void
     {
         // Arrange
@@ -731,9 +653,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(0, SpyProductConcreteImageStorageQuery::create()->filterByFkProduct($this->productConcreteTransfer->getIdProductConcrete())->count());
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageSetStoragePublishListenerSortsBySortOrderAsc(): void
     {
         // Prepare
@@ -773,9 +692,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame($productImageTransferSortedThird->getIdProductImage(), $productImages[2]['id_product_image']);
     }
 
-    /**
-     * @return void
-     */
     public function testProductAbstractImageSetStoragePublishListenerSortsByIdProductImageSetToProductImageAsc(): void
     {
         // Prepare
@@ -809,9 +725,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSortingByIdProductImageSetToProductImage($productImages);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageSetStoragePublishListenerSortsBySortOrderAsc(): void
     {
         // Prepare
@@ -851,9 +764,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame($productImageTransferSortedThird->getIdProductImage(), $productImages[2]['id_product_image']);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteImageSetStoragePublishListenerSortsByIdProductImageSetToProductImageAsc(): void
     {
         // Prepare
@@ -887,9 +797,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSortingByIdProductImageSetToProductImage($productImages);
     }
 
-    /**
-     * @return array
-     */
     protected function getProductAbstractImages(): array
     {
         $productImageStorage = SpyProductAbstractImageStorageQuery::create()->findOneByFkProductAbstract(
@@ -900,9 +807,6 @@ class ProductImageStorageListenerTest extends Unit
         return $productImages;
     }
 
-    /**
-     * @return array
-     */
     protected function getProductConcreteImages(): array
     {
         $productImageStorage = SpyProductConcreteImageStorageQuery::create()->findOneByFkProduct(
@@ -913,9 +817,6 @@ class ProductImageStorageListenerTest extends Unit
         return $productImages;
     }
 
-    /**
-     * @return \Spryker\Zed\ProductImageStorage\Business\ProductImageStorageFacade
-     */
     protected function getProductImageStorageFacade(): ProductImageStorageFacade
     {
         $factory = new ProductImageStorageBusinessFactory();
@@ -927,11 +828,6 @@ class ProductImageStorageListenerTest extends Unit
         return $facade;
     }
 
-    /**
-     * @param int $beforeCount
-     *
-     * @return void
-     */
     protected function assertProductAbstractImageStorage(int $beforeCount): void
     {
         $productImageStorageCount = SpyProductAbstractImageStorageQuery::create()->count();
@@ -942,11 +838,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(ProductImageDataHelper::NAME, $data['image_sets'][0]['name']);
     }
 
-    /**
-     * @param int $beforeCount
-     *
-     * @return void
-     */
     protected function assertProductConcreteImageStorage(int $beforeCount): void
     {
         $productImageStorageCount = SpyProductConcreteImageStorageQuery::create()->count();
@@ -957,11 +848,6 @@ class ProductImageStorageListenerTest extends Unit
         $this->assertSame(ProductImageDataHelper::NAME, $data['image_sets'][0]['name']);
     }
 
-    /**
-     * @param array $productImages
-     *
-     * @return void
-     */
     protected function assertSortingByIdProductImageSetToProductImage(array $productImages): void
     {
         $idProductImageSetToProductImagePrevious = 0;

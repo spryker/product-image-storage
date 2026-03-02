@@ -22,9 +22,6 @@ class ProductImageStorageToProductImageClientBridge implements ProductImageStora
         $this->productImageClient = $productImageClient;
     }
 
-    /**
-     * @return bool
-     */
     public function isProductImageAlternativeTextEnabled(): bool
     {
         return $this->productImageClient->isProductImageAlternativeTextEnabled();

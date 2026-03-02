@@ -28,9 +28,6 @@ class ProductImageStorageCommunicationFactory extends AbstractCommunicationFacto
         return $this->getProvidedDependency(ProductImageStorageDependencyProvider::FACADE_EVENT_BEHAVIOR);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductImageStorage\Dependency\Facade\ProductImageStorageToProductImageInterface
-     */
     public function getProductImageFacade(): ProductImageStorageToProductImageInterface
     {
         return $this->getProvidedDependency(ProductImageStorageDependencyProvider::FACADE_PRODUCT_IMAGE);

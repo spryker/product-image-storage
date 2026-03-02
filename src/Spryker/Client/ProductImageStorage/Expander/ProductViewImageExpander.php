@@ -24,10 +24,6 @@ class ProductViewImageExpander implements ProductViewImageExpanderInterface
      */
     protected $productConcreteImageInheritanceResolverInterface;
 
-    /**
-     * @param \Spryker\Client\ProductImageStorage\Storage\ProductAbstractImageStorageReaderInterface $productAbstractImageSetReader
-     * @param \Spryker\Client\ProductImageStorage\Resolver\ProductConcreteImageInheritanceResolverInterface $productConcreteImageInheritanceResolverInterface
-     */
     public function __construct(
         ProductAbstractImageStorageReaderInterface $productAbstractImageSetReader,
         ProductConcreteImageInheritanceResolverInterface $productConcreteImageInheritanceResolverInterface

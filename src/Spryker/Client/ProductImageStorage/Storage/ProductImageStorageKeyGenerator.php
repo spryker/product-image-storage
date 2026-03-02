@@ -23,9 +23,6 @@ class ProductImageStorageKeyGenerator implements ProductImageStorageKeyGenerator
      */
     protected static $storageKeyBuilders = [];
 
-    /**
-     * @param \Spryker\Client\ProductImageStorage\Dependency\Service\ProductImageStorageToSynchronizationServiceInterface $synchronizationService
-     */
     public function __construct(ProductImageStorageToSynchronizationServiceInterface $synchronizationService)
     {
         $this->synchronizationService = $synchronizationService;
@@ -48,11 +45,6 @@ class ProductImageStorageKeyGenerator implements ProductImageStorageKeyGenerator
         return $this->getStorageKeyBuilder($resourceName)->generateKey($synchronizationDataTransfer);
     }
 
-    /**
-     * @param string $resourceName
-     *
-     * @return \Spryker\Service\Synchronization\Dependency\Plugin\SynchronizationKeyGeneratorPluginInterface
-     */
     protected function getStorageKeyBuilder(string $resourceName): SynchronizationKeyGeneratorPluginInterface
     {
         if (!isset(static::$storageKeyBuilders[$resourceName])) {
