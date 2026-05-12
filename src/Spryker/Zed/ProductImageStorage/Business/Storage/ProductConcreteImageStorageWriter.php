@@ -17,9 +17,12 @@ use Orm\Zed\ProductImageStorage\Persistence\SpyProductConcreteImageStorage;
 use Spryker\Zed\ProductImageStorage\Dependency\Facade\ProductImageStorageToProductImageInterface;
 use Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageQueryContainerInterface;
 use Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageRepositoryInterface;
+use Spryker\Zed\Propel\Persistence\BatchProcessor\ActiveRecordBatchProcessorTrait;
 
 class ProductConcreteImageStorageWriter implements ProductConcreteImageStorageWriterInterface
 {
+    use ActiveRecordBatchProcessorTrait;
+
     /**
      * @var \Spryker\Zed\ProductImageStorage\Dependency\Facade\ProductImageStorageToProductImageInterface
      */
@@ -119,9 +122,10 @@ class ProductConcreteImageStorageWriter implements ProductConcreteImageStorageWr
                     continue;
                 }
 
-                $productConcreteImageStorageEntity->delete();
+                $this->remove($productConcreteImageStorageEntity);
             }
         }
+        $this->commit();
     }
 
     /**
@@ -168,6 +172,7 @@ class ProductConcreteImageStorageWriter implements ProductConcreteImageStorageWr
 
             $this->storeDataSet($spyProductConcreteLocalizedEntity, $imagesSets);
         }
+        $this->commit();
     }
 
     /**
@@ -188,7 +193,7 @@ class ProductConcreteImageStorageWriter implements ProductConcreteImageStorageWr
 
         if (empty($imageSets[$spyProductLocalizedEntity->getFkProduct()][$spyProductLocalizedEntity->getIdProductAttributes()])) {
             if (!$spyProductConcreteImageStorage->isNew()) {
-                $spyProductConcreteImageStorage->delete();
+                $this->remove($spyProductConcreteImageStorage);
             }
 
             return;
@@ -202,7 +207,7 @@ class ProductConcreteImageStorageWriter implements ProductConcreteImageStorageWr
         $spyProductConcreteImageStorage->setData($productConcreteStorageTransfer->toArray());
         $spyProductConcreteImageStorage->setLocale($spyProductLocalizedEntity->getLocale()->getLocaleName());
         $spyProductConcreteImageStorage->setIsSendingToQueue($this->isSendingToQueue);
-        $spyProductConcreteImageStorage->save();
+        $this->persist($spyProductConcreteImageStorage);
     }
 
     /**

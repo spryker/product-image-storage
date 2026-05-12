@@ -18,9 +18,12 @@ use Spryker\Zed\ProductImageStorage\Dependency\Facade\ProductImageStorageToProdu
 use Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageEntityManagerInterface;
 use Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageQueryContainerInterface;
 use Spryker\Zed\ProductImageStorage\Persistence\ProductImageStorageRepositoryInterface;
+use Spryker\Zed\Propel\Persistence\BatchProcessor\ActiveRecordBatchProcessorTrait;
 
 class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWriterInterface
 {
+    use ActiveRecordBatchProcessorTrait;
+
     /**
      * @uses \Orm\Zed\ProductImage\Persistence\Map\SpyProductImageSetToProductImageTableMap::COL_FK_PRODUCT_IMAGE_SET
      *
@@ -254,6 +257,8 @@ class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWr
 
             $this->storeDataSet($spyProductAbstractLocalizedEntity, $imagesSets);
         }
+
+        $this->commit();
     }
 
     /**
@@ -274,7 +279,7 @@ class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWr
 
         if (empty($imageSets[$spyProductAbstractLocalizedEntity->getFkProductAbstract()])) {
             if (!$spyProductAbstractImageStorage->isNew()) {
-                $spyProductAbstractImageStorage->delete();
+                $this->remove($spyProductAbstractLocalizedEntity);
             }
 
             return;
@@ -288,7 +293,7 @@ class ProductAbstractImageStorageWriter implements ProductAbstractImageStorageWr
         $spyProductAbstractImageStorage->setData($productAbstractStorageTransfer->toArray());
         $spyProductAbstractImageStorage->setLocale($spyProductAbstractLocalizedEntity->getLocale()->getLocaleName());
         $spyProductAbstractImageStorage->setIsSendingToQueue($this->isSendingToQueue);
-        $spyProductAbstractImageStorage->save();
+        $this->persist($spyProductAbstractImageStorage);
     }
 
     /**
