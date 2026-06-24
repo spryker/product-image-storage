@@ -61,6 +61,8 @@ class ProductImageStorageConfig extends AbstractBundleConfig
     public const DEFAULT_IMAGE_SET_NAME = ProductImageConfig::DEFAULT_IMAGE_SET_NAME;
 
     /**
+     * @api
+     *
      * Defines queue name for publish.
      *
      * @var string
@@ -68,6 +70,8 @@ class ProductImageStorageConfig extends AbstractBundleConfig
     public const PUBLISH_PRODUCT_ABSTRACT_IMAGE = 'publish.product_image_abstract';
 
     /**
+     * @api
+     *
      * Defines queue name for publish.
      *
      * @var string
